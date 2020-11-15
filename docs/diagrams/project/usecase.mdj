@@ -15349,12 +15349,12 @@
 										"$ref": "AAAAAAF1x6BAgeMcfG0="
 									},
 									"font": "Arial;13;0",
-									"left": 838,
-									"top": 567,
+									"left": 744,
+									"top": 527,
 									"width": 55.65625,
 									"height": 13,
-									"alpha": -3.4504193105246617,
-									"distance": 67.47592163134935,
+									"alpha": -3.2747831642852194,
+									"distance": 167.94344286098223,
 									"hostEdge": {
 										"$ref": "AAAAAAF1x6BAguMe8Sc="
 									},
