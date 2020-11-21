@@ -461,17 +461,17 @@
 										"$ref": "AAAAAAF153PfNAfOMKs="
 									},
 									"font": "Arial;13;0",
-									"left": 1048,
+									"left": 1056,
 									"top": 183,
-									"width": 171.7548828125,
+									"width": 163.0966796875,
 									"height": 13,
-									"alpha": -2.7980227967614804,
-									"distance": 246.4000811688178,
+									"alpha": -2.813390660296566,
+									"distance": 245.08161905781512,
 									"hostEdge": {
 										"$ref": "AAAAAAF153PfNAfPiEY="
 									},
 									"edgePosition": 1,
-									"text": "timer[\"time\" expired]/dismiss()"
+									"text": "timer[\"time\" expired]/dismiss"
 								},
 								{
 									"_type": "EdgeLabelView",
@@ -760,16 +760,16 @@
 									},
 									"font": "Arial;13;0",
 									"left": 687,
-									"top": 262,
-									"width": 364.20947265625,
+									"top": 248,
+									"width": 362.05126953125,
 									"height": 13,
-									"alpha": 1.5919569794554802,
-									"distance": 189.04232330353963,
+									"alpha": 1.6662498277477373,
+									"distance": 188.85973631242842,
 									"hostEdge": {
 										"$ref": "AAAAAAF153mBswhUc1g="
 									},
 									"edgePosition": 1,
-									"text": "network[peer.hasJoined() == true]/videochatPrepareAndShow()"
+									"text": "network[peerHasJoined == true]/prepare videochat and show it"
 								},
 								{
 									"_type": "EdgeLabelView",
@@ -853,17 +853,17 @@
 										"$ref": "AAAAAAF153mPPAhkKbM="
 									},
 									"font": "Arial;13;0",
-									"left": 687,
-									"top": 391,
-									"width": 448.04296875,
+									"left": 691,
+									"top": 400,
+									"width": 351.939453125,
 									"height": 13,
-									"alpha": 1.6359212949980608,
-									"distance": 230.4886114323222,
+									"alpha": 1.6032172008513712,
+									"distance": 185.09727172489605,
 									"hostEdge": {
 										"$ref": "AAAAAAF153mPPAhlXgI="
 									},
 									"edgePosition": 1,
-									"text": "button[toggleEditorButton.hasBeenClicked() == true]/editorPrepareAndShow()"
+									"text": "click[button == toggleEditorButton]/prepare editor and show it"
 								},
 								{
 									"_type": "EdgeLabelView",
@@ -947,17 +947,17 @@
 										"$ref": "AAAAAAF154DUuwimI6w="
 									},
 									"font": "Arial;13;0",
-									"left": 726,
+									"left": 826,
 									"top": 328,
-									"width": 440.0830078125,
+									"width": 343.9921875,
 									"height": 13,
-									"alpha": -5.051681461981095,
-									"distance": 234.3608329051593,
+									"alpha": -5.142556156972541,
+									"distance": 187.040102651811,
 									"hostEdge": {
 										"$ref": "AAAAAAF154DUvAinKVQ="
 									},
 									"edgePosition": 1,
-									"text": "button[toggleEditorButton.hasBeenClicked() == true]/destroyEditorAndHide()"
+									"text": "click[button == toggleEditorButton]/hide editor and destroy it"
 								},
 								{
 									"_type": "EdgeLabelView",
@@ -1041,17 +1041,17 @@
 										"$ref": "AAAAAAF1543n1gnbfBs="
 									},
 									"font": "Arial;13;0",
-									"left": 415,
+									"left": 431,
 									"top": 575,
-									"width": 233.37158203125,
+									"width": 215.31884765625,
 									"height": 13,
-									"alpha": -1.42664209488344,
-									"distance": 125.29964086141668,
+									"alpha": -1.4181471522210818,
+									"distance": 118.37651794169315,
 									"hostEdge": {
 										"$ref": "AAAAAAF1543n1gncW20="
 									},
 									"edgePosition": 1,
-									"text": "network[peer.hasLeft() == true]/dismiss()"
+									"text": "network[peerHasLeft == true]/dismiss"
 								},
 								{
 									"_type": "EdgeLabelView",
@@ -1135,9 +1135,9 @@
 										"$ref": "AAAAAAF1546GFgnwv1Y="
 									},
 									"font": "Arial;13;0",
-									"left": 392,
+									"left": 401,
 									"top": 336,
-									"width": 233.37158203125,
+									"width": 215.31884765625,
 									"height": 13,
 									"alpha": 2.483324572608844,
 									"distance": 189.62067397834025,
@@ -1145,7 +1145,7 @@
 										"$ref": "AAAAAAF1546GFgnxAx8="
 									},
 									"edgePosition": 1,
-									"text": "network[peer.hasLeft() == true]/dismiss()"
+									"text": "network[peerHasLeft == true]/dismiss"
 								},
 								{
 									"_type": "EdgeLabelView",
@@ -1229,17 +1229,17 @@
 										"$ref": "AAAAAAF154+cRwoK93U="
 									},
 									"font": "Arial;13;0",
-									"left": 702,
+									"left": 703,
 									"top": 576,
-									"width": 450.16943359375,
+									"width": 343.23681640625,
 									"height": 13,
-									"alpha": 1.4933650764970092,
-									"distance": 232.6972281742952,
+									"alpha": 1.4705744159098988,
+									"distance": 179.90275150758535,
 									"hostEdge": {
 										"$ref": "AAAAAAF154+cRwoLaxg="
 									},
 									"edgePosition": 1,
-									"text": "button[endSessionButton.hasBeenClicked() == true]/notifyServerAndDismiss()"
+									"text": "click[button == endSessionButton]/notify server and dismiss"
 								},
 								{
 									"_type": "EdgeLabelView",
@@ -1323,17 +1323,17 @@
 										"$ref": "AAAAAAF155D5IwotMk4="
 									},
 									"font": "Arial;13;0",
-									"left": 175,
+									"left": 176,
 									"top": 312,
-									"width": 450.16943359375,
+									"width": 343.23681640625,
 									"height": 13,
-									"alpha": 2.219987190614366,
-									"distance": 281.2045518834999,
+									"alpha": 2.3532618555398988,
+									"distance": 241.12444919584576,
 									"hostEdge": {
 										"$ref": "AAAAAAF155D5IwouyK4="
 									},
 									"edgePosition": 1,
-									"text": "button[endSessionButton.hasBeenClicked() == true]/notifyServerAndDismiss()"
+									"text": "click[button == endSessionButton]/notify server and dismiss"
 								},
 								{
 									"_type": "EdgeLabelView",
@@ -1528,7 +1528,7 @@
 					"_parent": {
 						"$ref": "AAAAAAF151CAdQcEqXo="
 					},
-					"name": "timer[\"time\" expired]/dismiss()",
+					"name": "timer[\"time\" expired]/dismiss",
 					"source": {
 						"$ref": "AAAAAAF152+JNwc/lQo="
 					},
@@ -1542,7 +1542,7 @@
 					"_parent": {
 						"$ref": "AAAAAAF151CAdQcEqXo="
 					},
-					"name": "network[peer.hasJoined() == true]/videochatPrepareAndShow()",
+					"name": "network[peerHasJoined == true]/prepare videochat and show it",
 					"source": {
 						"$ref": "AAAAAAF152+JNwc/lQo="
 					},
@@ -1556,7 +1556,7 @@
 					"_parent": {
 						"$ref": "AAAAAAF151CAdQcEqXo="
 					},
-					"name": "button[toggleEditorButton.hasBeenClicked() == true]/editorPrepareAndShow()",
+					"name": "click[button == toggleEditorButton]/prepare editor and show it",
 					"source": {
 						"$ref": "AAAAAAF153bdHQfsx8I="
 					},
@@ -1584,7 +1584,7 @@
 					"_parent": {
 						"$ref": "AAAAAAF151CAdQcEqXo="
 					},
-					"name": "button[toggleEditorButton.hasBeenClicked() == true]/destroyEditorAndHide()",
+					"name": "click[button == toggleEditorButton]/hide editor and destroy it",
 					"source": {
 						"$ref": "AAAAAAF153eHhggKOSU="
 					},
@@ -1640,7 +1640,7 @@
 					"_parent": {
 						"$ref": "AAAAAAF151CAdQcEqXo="
 					},
-					"name": "network[peer.hasLeft() == true]/dismiss()",
+					"name": "network[peerHasLeft == true]/dismiss",
 					"source": {
 						"$ref": "AAAAAAF153eHhggKOSU="
 					},
@@ -1654,7 +1654,7 @@
 					"_parent": {
 						"$ref": "AAAAAAF151CAdQcEqXo="
 					},
-					"name": "network[peer.hasLeft() == true]/dismiss()",
+					"name": "network[peerHasLeft == true]/dismiss",
 					"source": {
 						"$ref": "AAAAAAF153bdHQfsx8I="
 					},
@@ -1668,7 +1668,7 @@
 					"_parent": {
 						"$ref": "AAAAAAF151CAdQcEqXo="
 					},
-					"name": "button[endSessionButton.hasBeenClicked() == true]/notifyServerAndDismiss()",
+					"name": "click[button == endSessionButton]/notify server and dismiss",
 					"source": {
 						"$ref": "AAAAAAF153eHhggKOSU="
 					},
@@ -1682,7 +1682,7 @@
 					"_parent": {
 						"$ref": "AAAAAAF151CAdQcEqXo="
 					},
-					"name": "button[endSessionButton.hasBeenClicked() == true]/notifyServerAndDismiss()",
+					"name": "click[button == endSessionButton]/notify server and dismiss",
 					"source": {
 						"$ref": "AAAAAAF153bdHQfsx8I="
 					},
