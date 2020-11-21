@@ -461,17 +461,17 @@
 										"$ref": "AAAAAAF153PfNAfOMKs="
 									},
 									"font": "Arial;13;0",
-									"left": 1056,
+									"left": 1028,
 									"top": 183,
-									"width": 163.0966796875,
+									"width": 189.82666015625,
 									"height": 13,
-									"alpha": -2.813390660296566,
-									"distance": 245.08161905781512,
+									"alpha": -2.756635350192467,
+									"distance": 250.3197954617253,
 									"hostEdge": {
 										"$ref": "AAAAAAF153PfNAfPiEY="
 									},
 									"edgePosition": 1,
-									"text": "timer[\"time\" expired]/dismiss"
+									"text": "timerAlert[\"time\" expired]/dismiss"
 								},
 								{
 									"_type": "EdgeLabelView",
@@ -759,17 +759,17 @@
 										"$ref": "AAAAAAF153mBswhTezw="
 									},
 									"font": "Arial;13;0",
-									"left": 687,
-									"top": 248,
-									"width": 362.05126953125,
+									"left": 688,
+									"top": 240,
+									"width": 395.2939453125,
 									"height": 13,
-									"alpha": 1.6662498277477373,
-									"distance": 188.85973631242842,
+									"alpha": 1.696951825261259,
+									"distance": 206.6422028531442,
 									"hostEdge": {
 										"$ref": "AAAAAAF153mBswhUc1g="
 									},
 									"edgePosition": 1,
-									"text": "network[peerHasJoined == true]/prepare videochat and show it"
+									"text": "networkEvent[peerHasJoined == true]/prepare videochat and show it"
 								},
 								{
 									"_type": "EdgeLabelView",
@@ -1041,17 +1041,17 @@
 										"$ref": "AAAAAAF1543n1gnbfBs="
 									},
 									"font": "Arial;13;0",
-									"left": 431,
+									"left": 398,
 									"top": 575,
-									"width": 215.31884765625,
+									"width": 248.5615234375,
 									"height": 13,
-									"alpha": -1.4181471522210818,
-									"distance": 118.37651794169315,
+									"alpha": -1.436275480552585,
+									"distance": 134.21251804507656,
 									"hostEdge": {
 										"$ref": "AAAAAAF1543n1gncW20="
 									},
 									"edgePosition": 1,
-									"text": "network[peerHasLeft == true]/dismiss"
+									"text": "networkEvent[peerHasLeft == true]/dismiss"
 								},
 								{
 									"_type": "EdgeLabelView",
@@ -1135,17 +1135,17 @@
 										"$ref": "AAAAAAF1546GFgnwv1Y="
 									},
 									"font": "Arial;13;0",
-									"left": 401,
+									"left": 383,
 									"top": 336,
-									"width": 215.31884765625,
+									"width": 248.5615234375,
 									"height": 13,
-									"alpha": 2.483324572608844,
-									"distance": 189.62067397834025,
+									"alpha": 2.454774892539706,
+									"distance": 193.98195792392653,
 									"hostEdge": {
 										"$ref": "AAAAAAF1546GFgnxAx8="
 									},
 									"edgePosition": 1,
-									"text": "network[peerHasLeft == true]/dismiss"
+									"text": "networkEvent[peerHasLeft == true]/dismiss"
 								},
 								{
 									"_type": "EdgeLabelView",
@@ -1158,7 +1158,7 @@
 									},
 									"visible": null,
 									"font": "Arial;13;0",
-									"left": 422,
+									"left": 414,
 									"top": 485,
 									"height": 13,
 									"alpha": 1.5707963267948966,
@@ -1179,7 +1179,7 @@
 									},
 									"visible": false,
 									"font": "Arial;13;0",
-									"left": 377,
+									"left": 369,
 									"top": 486,
 									"height": 13,
 									"alpha": -1.5707963267948966,
@@ -1197,7 +1197,7 @@
 							"tail": {
 								"$ref": "AAAAAAF153bdHgfuu4A="
 							},
-							"points": "640:352;392:352;392:632;640:632",
+							"points": "640:352;384:352;384:632;640:632",
 							"showVisibility": true,
 							"nameLabel": {
 								"$ref": "AAAAAAF1546GFgny51E="
@@ -1528,7 +1528,7 @@
 					"_parent": {
 						"$ref": "AAAAAAF151CAdQcEqXo="
 					},
-					"name": "timer[\"time\" expired]/dismiss",
+					"name": "timerAlert[\"time\" expired]/dismiss",
 					"source": {
 						"$ref": "AAAAAAF152+JNwc/lQo="
 					},
@@ -1542,7 +1542,7 @@
 					"_parent": {
 						"$ref": "AAAAAAF151CAdQcEqXo="
 					},
-					"name": "network[peerHasJoined == true]/prepare videochat and show it",
+					"name": "networkEvent[peerHasJoined == true]/prepare videochat and show it",
 					"source": {
 						"$ref": "AAAAAAF152+JNwc/lQo="
 					},
@@ -1640,7 +1640,7 @@
 					"_parent": {
 						"$ref": "AAAAAAF151CAdQcEqXo="
 					},
-					"name": "network[peerHasLeft == true]/dismiss",
+					"name": "networkEvent[peerHasLeft == true]/dismiss",
 					"source": {
 						"$ref": "AAAAAAF153eHhggKOSU="
 					},
@@ -1654,7 +1654,7 @@
 					"_parent": {
 						"$ref": "AAAAAAF151CAdQcEqXo="
 					},
-					"name": "network[peerHasLeft == true]/dismiss",
+					"name": "networkEvent[peerHasLeft == true]/dismiss",
 					"source": {
 						"$ref": "AAAAAAF153bdHQfsx8I="
 					},
