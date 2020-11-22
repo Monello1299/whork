@@ -8,7 +8,7 @@ if [[ $# < 1 ]]; then
 	exit 1
 fi
 
-if [[ $DEPLOY_CONFIG != "config-osx" || $DEPLOY_CONFIG != "config-linux" ]]; then
+if [[ $DEPLOY_CONFIG != "config-osx" ]] && [[ $DEPLOY_CONFIG != "config-linux" ]]; then
 	echo "invalid config: \"$DEPLOY_CONFIG\""
 	echo -ne "possible configs:\n"
 	echo -ne "\t- config-osx\n"
@@ -16,7 +16,7 @@ if [[ $DEPLOY_CONFIG != "config-osx" || $DEPLOY_CONFIG != "config-linux" ]]; the
 	exit 2
 fi
 
-cd desktopapp
+cd whork/desktopapp
 mvn assembly:single
 cd ../..
 mv whork/desktopapp/target/desktopapp-0.0.0-jar-with-dependencies.jar .
