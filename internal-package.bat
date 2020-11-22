@@ -1,4 +1,4 @@
-cd webapp
+cd whork/webapp
 mvn assembly:single
 cd ../..
 mv whork/webapp/target/desktopapp-0.0.0-jar-with-dependencies.jar .
