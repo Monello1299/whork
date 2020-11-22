@@ -23,8 +23,7 @@ jobs:
       addons:
         sonarcloud:
           organization: "stefanobelli"
-          token:
-            secure: "lX5O9XawvBNzFXQfK9c3F68WJtP2O2Z645yzZiMOM1KVTqid8m5YmajSb1sr1rsvbAEjhOfGd6fFd8ig3INI1FFJ8fDggNEomsTBUeIpEa7YCzshlHiQsNKFL9j7mTAqNhdSvp83O3QX1+3xAwTWxoLIBOjUDqQPHQ4SP+/V5PTeeOGHBEkodrz2Xt1SIqNZ0HgR77WRC6O58J71s4pLTyvnmLrfK43FyJUcQCpgd4mq96+W5zBHmv1VRw6aWsGCFhV1AyVF8nFhgQ0Pt4/5cPVuecNUJHPtF1L5GFzTCto/de2/qf6yzhuN8ZYQHw9zzxvA1/2b++QdTBBqoobjKyyvbzhPqjPfCKEmO+a2dS+2gSxlr/TCECppeX2bCtoUseJwKmctas8Q2/1uPeoQvd3RM+VOODHoYgf1IP7Iz9eOWKntEtgR0oaGdDt9r5tTdjyx/Qp6Dp6+FqLCUeT1Ff25u8XArLUvmlrZlS72AzSpruSAbwekgNXEBqFRR6xXSDQX2IqCMXJKi5jaVwRjzYPUv/Fcg5AvSzVjX6cksD87ZJQlBSbaLLQlI1XbtE4JJqHAO/iZepKC7sBGjxeRITjh3eya/rHx63y4b8j8bCJ6moqcl8U8XVy2yazaje3QCp0LyC16qiXX6c7i9fXP3gPuOUl8+4OIvN0e0MGGAdY="
+          token: $SONAR_TOKEN
       after_success:
         - cd ..
         - sonar-scanner
