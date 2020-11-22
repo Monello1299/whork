@@ -29,7 +29,7 @@ elif [[ $DEPLOY_CONFIG == "config-linux" ]]; then
 	mvn assembly:single
 	cd ../..
 	mv whork/webapp/target/webapp-0.0.0-jar-with-dependencies.jar .
-	mv webapp-0.0.0-jar-with-dependencies whork-webapp-$TRAVIS_TAG-any.jar
+	mv webapp-0.0.0-jar-with-dependencies.jar whork-webapp-$TRAVIS_TAG-any.jar
 	cd docs
 	pdflatex srs.tex
 	rm -rfv srs.log srs.aux srs.tex *.log
