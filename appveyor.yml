@@ -18,7 +18,7 @@ test_script:
   - mvn test
 
 before_deploy:
-  - internal-package.bat
+  - CALL internal-package.bat
   - appveyor PushArtifact whork-desktop-%APPVEYOR_REPO_TAG_NAME%-win32.jar
 
 deploy:
