@@ -39,7 +39,6 @@ jobs:
         on:
           tags: true
 
-
 # BEGIN Common phases
 
 before_script:
