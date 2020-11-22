@@ -28,6 +28,7 @@ jobs:
         - cd ..
         - sonar-scanner
       before_deploy:
+        - sudo apt install -y texlive texstudio
         - ./internal-package.sh config-linux
       deploy:
         provider: releases

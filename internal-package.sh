@@ -2,6 +2,20 @@
 
 DEPLOY_CONFIG=$1
 
+if [[ $# < 1 ]]; then
+	echo "not enough args"
+	echo "usage: $0 <config>"
+	exit 1
+fi
+
+if [[ $DEPLOY_CONFIG != "config-osx" || $DEPLOY_CONFIG != "config-linux" ]]; then
+	echo "invalid config: \"$DEPLOY_CONFIG\""
+	echo -ne "possible configs:\n"
+	echo -ne "\t- config-osx\n"
+	echo -ne "\t- config-linux\n"
+	exit 2
+fi
+
 cd desktopapp
 mvn assembly:single
 cd ../..
