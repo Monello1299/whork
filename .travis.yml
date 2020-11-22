@@ -36,8 +36,8 @@ jobs:
         file: 
           - whork-webapp-$TRAVIS_TAG-any.jar
           - whork-desktop-$TRAVIS_TAG-linux.jar
-  on:
-    tags: true
+        on:
+          tags: true
 
 
 # BEGIN Common phases
