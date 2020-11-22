@@ -1,0 +1,31 @@
+version: '{build}-{branch}'
+
+platform:
+  - x64
+
+# scripts to run before build
+before_build:
+  - java -version
+  - mvn -version
+  - cd whork
+
+# to run your custom scripts instead of automatic MSBuild
+build_script:
+  - mvn compile
+
+# to run your custom scripts instead of automatic tests
+test_script:
+  - mvn test
+
+before_deploy:
+  - internal-package.bat
+  - appveyor PushArtifact whork-desktop-%APPVEYOR_REPO_TAG_NAME%-win32.jar
+
+deploy:
+  - provider: GitHub
+    artifact: /.*\.jar/
+    auth_token:
+      secure: hlSo1Er2H7DC2armIwxMQWRJclyUNOnUR9TGVElvad2V6o7aGYU3yTiIWd7esTlk
+    on:
+      branch: main
+      APPVEYOR_REPO_TAG: true
