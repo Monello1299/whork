@@ -2,7 +2,7 @@ os: linux
 dist: focal
 language: java
 jdk: oraclejdk15
-  
+
 jobs:
   include:
     - os: osx
@@ -35,19 +35,19 @@ jobs:
         token: $GITHUB_TOKEN
         skip_cleanup: true
         file: 
-          - whork-webapp-$TRAVIS_TAG-any.jar
-          - whork-desktop-$TRAVIS_TAG-linux.jar
-        on:
-          tags: true
-      
+    - whork-webapp-$TRAVIS_TAG-any.jar
+    - whork-desktop-$TRAVIS_TAG-linux.jar
+  on:
+    tags: true
 
-# BEGIN Common phases
 
-before_script:
-  - cd whork
+      # BEGIN Common phases
+
+    before_script:
+      - cd whork
   - mvn -version
-script: 
+    script: 
   - mvn compile
   - mvn test
 
-# END Common phases
+    # END Common phases
