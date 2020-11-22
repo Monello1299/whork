@@ -44,7 +44,7 @@ jobs:
 # BEGIN Common phases
 
 before_script:
-  - cd cool_project
+  - cd whork
   - mvn -version
 script: 
   - mvn compile
