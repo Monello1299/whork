@@ -24,7 +24,7 @@ jobs:
         sonarcloud:
           organization: "stefanobelli"
           token:
-            secure: "puMDYX7/j5kBkd1hi6sfCFRXPfueBH4sRWaRoh9ypPliozVyUEGz3y8tNIbCZ+xytXR3QzIv93gpnlsyEFfdEXmhkVT4WE1Ig3A6c8Pih3zm5z+rKSuxxnZaU+K+7lS/CxcVxzqEn2TU0+q8wXyCRMgjETUrr3sW3Dsxd8m2oLCI6gKzIjyB6nSy04frDtcv7gCCXt09qEK8sTKt+dlvZibdx0JiH3SQCErutNdohx29NFYrP0J/58lCkXzEtDy7NipJzT8Jh4HimA9He4MLYbdead2MMsNmAuJmpVuGxN1IFNjNsBihnHv3N3zS7COWZ44LpV2nCxBIDxvE/Us6TjSFH6+03ICLLrHOsi+BOuL8L9fnGZxl+OL5xoizwNLwmnvzyOZ3/zXmF87N3Ve0NRa1+G5cgYNW+LOvjK8xRdl2CRwXn5GedLyNp9iZLYnm/HV3txY0AV1zeWLw6D5a6Z5QnXMlHX9ZumNElaCue7mIQgz2ZaRpz8EjTEWnSvKZT7YHEQUyWFcTm2tjlRQl9lu1rSqRvtQeFTGMenWfr+YFAkGBmUDKGhSYgdepjpckwuu6t7mU1bM9Il/cRjrzck+HvftuLpQ3cQiAO5si7WE7GS45fB9xbT+zC6MfQOV0Qak5ZlsV5OB6dDVXgubc/mVyMozQgbKJUy5gZgVgX0Q="
+            secure: puMDYX7/j5kBkd1hi6sfCFRXPfueBH4sRWaRoh9ypPliozVyUEGz3y8tNIbCZ+xytXR3QzIv93gpnlsyEFfdEXmhkVT4WE1Ig3A6c8Pih3zm5z+rKSuxxnZaU+K+7lS/CxcVxzqEn2TU0+q8wXyCRMgjETUrr3sW3Dsxd8m2oLCI6gKzIjyB6nSy04frDtcv7gCCXt09qEK8sTKt+dlvZibdx0JiH3SQCErutNdohx29NFYrP0J/58lCkXzEtDy7NipJzT8Jh4HimA9He4MLYbdead2MMsNmAuJmpVuGxN1IFNjNsBihnHv3N3zS7COWZ44LpV2nCxBIDxvE/Us6TjSFH6+03ICLLrHOsi+BOuL8L9fnGZxl+OL5xoizwNLwmnvzyOZ3/zXmF87N3Ve0NRa1+G5cgYNW+LOvjK8xRdl2CRwXn5GedLyNp9iZLYnm/HV3txY0AV1zeWLw6D5a6Z5QnXMlHX9ZumNElaCue7mIQgz2ZaRpz8EjTEWnSvKZT7YHEQUyWFcTm2tjlRQl9lu1rSqRvtQeFTGMenWfr+YFAkGBmUDKGhSYgdepjpckwuu6t7mU1bM9Il/cRjrzck+HvftuLpQ3cQiAO5si7WE7GS45fB9xbT+zC6MfQOV0Qak5ZlsV5OB6dDVXgubc/mVyMozQgbKJUy5gZgVgX0Q=
       after_success:
         - cd ..
         - sonar-scanner
