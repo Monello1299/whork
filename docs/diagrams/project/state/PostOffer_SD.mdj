@@ -1356,7 +1356,7 @@
 							"top": 440,
 							"width": 238.3505859375,
 							"height": 51,
-							"text": "Click[Button==PostButton && RequiredFieldsCompleted]/displayPage"
+							"text": "Click[Button==PostButton && check_full_fields==true]/displayPage"
 						},
 						{
 							"_type": "UMLTextView",
