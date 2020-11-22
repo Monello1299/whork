@@ -24,7 +24,7 @@ jobs:
         sonarcloud:
           organization: "stefanobelli"
           token:
-            secure: "bVCiqQCUILLFdhSQVyEhusZiyUsiizaUuni/2aE2QrTnHtlg1jzd1PE6GcgMAQxSGqbs09I7cJHvvyqMuM+HmJLMN9TnMlLg0IeshsegB3TnWENlkvAHm+8HZpbpgqV25uibeamL1pp2GVdtGSbqOgRbs+LFpLHmtkvisDwTS6QwJVnLxLMil4hDcAES3NLvo+QA5q6RSkm0/2krgnCM+HEe7gxYlgd0MRqveS/WXS4OBDXGQz0bG4tnEEtmSg+icqzzM9IMrBU9MFjQkq579PIaddQi/PwIt0A+hWL7SvDVNnJDU13UIgcvbmTA/EgUwqRxkZlN29fsSWtCGApmV39To93aw1xzlnt4M9c+BYYlu68tJ759xOlRd9qE3uAC5qmVwP7OEkYjrB9tolgfI+s35nfWO47WG9beGg1s6k8iRDiWNdyRluxIOHv3ENVSWhvk6Tjha9fc9MmWhLzWn31BTQf83Sm6YC1mZ2tRWI5u7XekvArZmeOOts4guu3K5UwxJFTaKyX2ku/w0iZopgAjCr3QxPYmn9z2EslDWjxwr6bmOjcYXSoOGrPU/fXq1n1Nn+cgSd+WRsFAf+J8AKz+xVZWMqKMYs4Ls38xuihnth/ZczhahZ4yAU9HlaHClFBBpov1jO1yc8t+AGZuYOSxh3Kn/pf0S4lbDknk2PY="
+            secure: "lX5O9XawvBNzFXQfK9c3F68WJtP2O2Z645yzZiMOM1KVTqid8m5YmajSb1sr1rsvbAEjhOfGd6fFd8ig3INI1FFJ8fDggNEomsTBUeIpEa7YCzshlHiQsNKFL9j7mTAqNhdSvp83O3QX1+3xAwTWxoLIBOjUDqQPHQ4SP+/V5PTeeOGHBEkodrz2Xt1SIqNZ0HgR77WRC6O58J71s4pLTyvnmLrfK43FyJUcQCpgd4mq96+W5zBHmv1VRw6aWsGCFhV1AyVF8nFhgQ0Pt4/5cPVuecNUJHPtF1L5GFzTCto/de2/qf6yzhuN8ZYQHw9zzxvA1/2b++QdTBBqoobjKyyvbzhPqjPfCKEmO+a2dS+2gSxlr/TCECppeX2bCtoUseJwKmctas8Q2/1uPeoQvd3RM+VOODHoYgf1IP7Iz9eOWKntEtgR0oaGdDt9r5tTdjyx/Qp6Dp6+FqLCUeT1Ff25u8XArLUvmlrZlS72AzSpruSAbwekgNXEBqFRR6xXSDQX2IqCMXJKi5jaVwRjzYPUv/Fcg5AvSzVjX6cksD87ZJQlBSbaLLQlI1XbtE4JJqHAO/iZepKC7sBGjxeRITjh3eya/rHx63y4b8j8bCJ6moqcl8U8XVy2yazaje3QCp0LyC16qiXX6c7i9fXP3gPuOUl8+4OIvN0e0MGGAdY="
       after_success:
         - cd ..
         - sonar-scanner
