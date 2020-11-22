@@ -10,7 +10,7 @@ jobs:
       after_success:
         - cd ..
       before_deploy:
-        - ./internal-package.sh config-osx
+        - bash ./internal-package.sh config-osx
       deploy:
         provider: releases
         token: $GITHUB_TOKEN
