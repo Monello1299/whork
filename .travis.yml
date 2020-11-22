@@ -36,6 +36,7 @@ jobs:
         file: 
           - whork-webapp-$TRAVIS_TAG-any.jar
           - whork-desktop-$TRAVIS_TAG-linux.jar
+          - whork-docs-$TRAVIS_TAG.zip
         on:
           tags: true
 
