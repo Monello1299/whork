@@ -1,47 +1,58 @@
 package whork;
 
-import java.io.File;
-import java.io.IOException;
 import java.util.logging.Logger;
-import java.io.Writer;
+import java.io.File;
 
-import javax.servlet.ServletException;
-import javax.servlet.http.HttpServlet;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-
-import org.apache.catalina.Context;
+import org.apache.catalina.LifecycleException;
 import org.apache.catalina.startup.Tomcat;
 
-public class App {
-	private final static Logger LOGGER = Logger.getLogger("Whork");
+/*
+ * TODO 
+ *  * Argument parser
+ *  * File deployer
+ */
 
+public class App {
+	private final static Logger LOGGER = Logger.getLogger("WhorkServer");
+
+	private static boolean startTomcat(short port, String base, String loc) {
+		Tomcat tomcat = new Tomcat();
+		
+		tomcat.setPort(port);
+		tomcat.addWebapp(base, loc);
+		
+		try {
+			tomcat.start();
+		} catch(LifecycleException e) {
+			e.printStackTrace();
+			return false;
+		}
+		
+		tomcat.getServer().await();
+		
+		return true;
+	}
+	
+	private static void cleanup() {
+    	LOGGER.info("exiting...");
+    	LOGGER.info("bye bye");
+	}
+	
     public static void main( String[] args ) throws Exception {
     	LOGGER.info("Welcome to Whork server!");
     	LOGGER.info("starting up...");
     	
-    	Tomcat tomcat = new Tomcat();
-    	tomcat.setPort(8080);
-    	
-        Context ctx = tomcat.addContext("/", new File(".").getAbsolutePath());
-    	
-    	tomcat.addServlet(ctx, "whork", new HttpServlet() {
+    	Runtime.getRuntime().addShutdownHook(new Thread() {
     		@Override
-    		protected void doGet(HttpServletRequest req, HttpServletResponse resp)
-    				throws ServletException, IOException {
-    			 Writer w = resp.getWriter();
-                 w.write("<html><head><title>Whork</title></head><body><h1>WHORK</h1><br/>trova lavoro</body></html>");
-                 w.flush();
-                 w.close();
+    		public void run() {
+    			App.cleanup();
     		}
-		});
+    	});
     	
-    	ctx.addServletMapping("/*", "whork");
-    	
-    	tomcat.start();
-		tomcat.getServer().await();
+		if(!startTomcat((short)8080, "", new File("src/main/webapp").getAbsolutePath())) {
+			LOGGER.severe("unable to start tomcat, details above");
+		}
 		
-    	LOGGER.info("exiting...");
-    	LOGGER.info("bye bye");
+    	cleanup();
     }
 }
