@@ -73,7 +73,7 @@ public class App {
 				String path = builder.toString();
 				File resFile = new File(path);
 				if(resFile.createNewFile())
-					LOGGER.info(new StringBuilder().append(path).append(" already exists").toString());
+					LOGGER.info(path + " already exists");
 				
 				BufferedInputStream istOrigin = new BufferedInputStream(
 						App.class.getResourceAsStream(res));
@@ -162,18 +162,11 @@ public class App {
 	}
 	
 	private static void printProperties() {
-		StringBuilder builder = new StringBuilder();
-		
-		builder.append("Settings for Whork server:\n--> port: ");
-		builder.append(Integer.toString(port));
-		builder.append("\n--> base: ");
-		builder.append(base.isEmpty() ? "/": base);
-		builder.append("\n--> webroot: ");
-		builder.append(webRoot);
-		builder.append("\n--> self-extract? ");
-		builder.append(selfExtract);
-		
-		LOGGER.info(builder.toString());
+		String pBase = base.isEmpty() ? "/" : base;
+		LOGGER.info("Settings for Whork server:\n--> port: " + Integer.toString(port) + 
+				"\n--> base: " + pBase + 
+				"\n--> webroot: " + webRoot + 
+				"\n--> self-extract? " + selfExtract);
 	}
 	
 	private static boolean propertySetup(String[] args) throws ParseException {
