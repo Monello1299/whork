@@ -1,6 +1,6 @@
 package whork;
 
-import java.util.Vector;
+import java.util.ArrayList;
 import java.util.logging.Logger;
 import java.io.BufferedInputStream;
 import java.io.BufferedOutputStream;
@@ -24,8 +24,14 @@ import org.apache.commons.cli.Options;
 import org.apache.commons.cli.ParseException;
 
 public class App {
-	private static Vector<String> webResDirectory = new Vector<>();
-	private static Vector<String> webResFiles = new Vector<>();
+	private static final String BASEOPT = "base";
+	private static final String WEBRESOPT = "webRes";
+	private static final String WEBROOTOPT = "webRoot";
+	private static final String HELPOPT = "help";
+	private static final String PORTOPT = "port";
+	
+	private static ArrayList<String> webResDirectory = new ArrayList<>();
+	private static ArrayList<String> webResFiles = new ArrayList<>();
 	
 	private static final Logger LOGGER = Logger.getLogger("WhorkStartup");
 	private static String webRoot;
@@ -64,8 +70,10 @@ public class App {
 				builder.append(webRoot);
 				builder.append(res);
 				
-				File resFile = new File(builder.toString());
-				resFile.createNewFile();
+				String path = builder.toString();
+				File resFile = new File(path);
+				if(resFile.createNewFile())
+					LOGGER.info(new StringBuilder().append(path).append(" already exists").toString());
 				
 				BufferedInputStream istOrigin = new BufferedInputStream(
 						App.class.getResourceAsStream(res));
@@ -75,12 +83,15 @@ public class App {
 				
 				byte[] buffer = new byte[1024];
 		        int lengthRead;
-		        while ((lengthRead = istOrigin.read(buffer)) > 0) {
-		            ostDest.write(buffer, 0, lengthRead);
-		        }
 		        
-				ostDest.close();
-				istOrigin.close();
+		        try {
+		        	while ((lengthRead = istOrigin.read(buffer)) > 0) {
+		        		ostDest.write(buffer, 0, lengthRead);
+		        	}
+		        } finally {
+		        	ostDest.close();
+		        	istOrigin.close();
+		        }
 			}
 		} else {
 			LOGGER.info("skipping self extraction...");
@@ -115,11 +126,11 @@ public class App {
 	private static Options createOptions() {
 		Options opt = new Options();
 		
-		opt.addOption("webRes", 
+		opt.addOption(WEBRESOPT, 
 				true, 
 				"Provide web resources on your own (default: none)");
 		
-		opt.addOption("port", 
+		opt.addOption(PORTOPT, 
 				true, 
 				new StringBuilder()
 					.append("Provide different port from the standard one (default: ")
@@ -127,7 +138,7 @@ public class App {
 					.append(")")
 					.toString());
 		
-		opt.addOption("base", 
+		opt.addOption(BASEOPT, 
 				true, 
 				new StringBuilder()
 					.append("Provide base path for website (default: ")
@@ -135,7 +146,7 @@ public class App {
 					.append(")")
 					.toString());
 		
-		opt.addOption("webRoot",
+		opt.addOption(WEBROOTOPT,
 				true,
 				new StringBuilder()
 					.append("Provide different root directory for web resource extraction and usage (default: ")
@@ -143,7 +154,7 @@ public class App {
 					.append(")")
 					.toString());
 		
-		opt.addOption("help", 
+		opt.addOption(HELPOPT, 
 				false, 
 				"Print this help and immediately exit");
 		
@@ -179,7 +190,7 @@ public class App {
     	for(Option opt : cmd.getOptions()) {
     		String argName = opt.getOpt();
     		if(argName != null) {
-    			if(argName.equals("base")) {
+    			if(argName.equals(BASEOPT)) {
     				base = opt.getValue();
     				if(base.equals("/"))
     					base = "";
@@ -187,23 +198,23 @@ public class App {
     					LOGGER.severe("base must start with /");
     					return false;
     				}
-    			} else if(argName.equals("port")) {
+    			} else if(argName.equals(PORTOPT)) {
     				port = Integer.parseInt(opt.getValue());
     				if(port < 0 || port > 65535) {
     					LOGGER.severe("port number must be within range [0-65535]");
     					return false;
     				}
-    			} else if(argName.equals("webRes")) {
+    			} else if(argName.equals(WEBRESOPT)) {
     				if(selfExtract) {
     					LOGGER.warning("ignoring webRes value because self extraction is enabled...");
     				} else {
-    					webRoot = new File(cmd.getOptionValue("webRes")).getAbsolutePath();
+    					webRoot = new File(opt.getValue()).getAbsolutePath();
     				}
-    			} else if(argName.equals("webRoot")) {
+    			} else if(argName.equals(WEBROOTOPT)) {
     				if(!selfExtract) {
     					LOGGER.warning("ignoring webRoot property because self extraction is disabled...");
     				} else {
-    					webRoot = new File(cmd.getOptionValue("webRoot")).getAbsolutePath();
+    					webRoot = new File(opt.getValue()).getAbsolutePath();
     				}
     			}
     		}
