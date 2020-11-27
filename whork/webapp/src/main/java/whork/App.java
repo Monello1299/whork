@@ -1,7 +1,9 @@
 package whork;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import java.util.ArrayList;
-import java.util.logging.Logger;
 import java.io.BufferedInputStream;
 import java.io.BufferedOutputStream;
 import java.io.File;
@@ -33,7 +35,7 @@ public class App {
 	private static ArrayList<String> webResDirectory = new ArrayList<>();
 	private static ArrayList<String> webResFiles = new ArrayList<>();
 
-	private static final Logger LOGGER = Logger.getLogger("WhorkStartup");
+	private static final Logger LOGGER = LoggerFactory.getLogger("WhorkStartup");
 	private static String webRoot;
 	private static String base = "";
 	private static int port = 8080;
@@ -72,8 +74,8 @@ public class App {
 
 				String path = builder.toString();
 				File resFile = new File(path);
-				if (resFile.createNewFile())
-					LOGGER.info(path + " already exists");
+				if (!resFile.createNewFile())
+					LOGGER.info("{} already exists", path);
 
 				BufferedInputStream istOrigin = new BufferedInputStream(App.class.getResourceAsStream(res));
 
@@ -141,12 +143,6 @@ public class App {
 		return opt;
 	}
 
-	private static void printProperties() {
-		String pBase = base.isEmpty() ? "/" : base;
-		LOGGER.info("Settings for Whork server:\n--> port: " + Integer.toString(port) + "\n--> base: " + pBase
-				+ "\n--> webroot: " + webRoot + "\n--> self-extract? " + selfExtract);
-	}
-
 	private static boolean propertySetup(String[] args) throws ParseException {
 		Options options = createOptions();
 		CommandLineParser parser = new DefaultParser();
@@ -166,24 +162,24 @@ public class App {
 					if (base.equals("/"))
 						base = "";
 					else if (base.charAt(0) != '/') {
-						LOGGER.severe("base must start with /");
+						LOGGER.error("base must start with /");
 						return false;
 					}
 				} else if (argName.equals(PORTOPT)) {
 					port = Integer.parseInt(opt.getValue());
 					if (port < 0 || port > 65535) {
-						LOGGER.severe("port number must be within range [0-65535]");
+						LOGGER.error("port number must be within range [0-65535]");
 						return false;
 					}
 				} else if (argName.equals(WEBRESOPT)) {
 					if (selfExtract) {
-						LOGGER.warning("ignoring webRes value because self extraction is enabled...");
+						LOGGER.warn("ignoring webRes value because self extraction is enabled...");
 					} else {
 						webRoot = new File(opt.getValue()).getAbsolutePath();
 					}
 				} else if (argName.equals(WEBROOTOPT)) {
 					if (!selfExtract) {
-						LOGGER.warning("ignoring webRoot property because self extraction is disabled...");
+						LOGGER.warn("ignoring webRoot property because self extraction is disabled...");
 					} else {
 						webRoot = new File(opt.getValue()).getAbsolutePath();
 					}
@@ -192,11 +188,12 @@ public class App {
 		}
 
 		if (webRoot == null && !selfExtract) {
-			LOGGER.severe("you must pass webRes in order to specify where to locate web resources");
+			LOGGER.error("you must pass webRes in order to specify where to locate web resources");
 			return false;
 		}
 
-		printProperties();
+		LOGGER.info("Settings for Whork server:\n--> port: {}\n--> base: {}\n--> webroot: {}\n--> self-extract? {}",
+				port, base.isEmpty() ? "/" : base, webRoot, selfExtract);
 
 		return true;
 	}
@@ -213,23 +210,23 @@ public class App {
 	}
 
 	private static void cleanup() {
+		Logger cleanupLogger = LoggerFactory.getLogger("WhorkCleanup");
+		
 		if (selfExtract) {
-			LOGGER.info("deleting webroot...");
+			cleanupLogger.info("deleting webroot...");
 			try {
 				utilDeleteDirectoryRecursion(Paths.get(webRoot));
 			} catch (IOException e) {
 				e.getMessage();
-				LOGGER.severe(new StringBuilder().append("unable to delete webroot @ ").append(webRoot).toString());
+				cleanupLogger.error("unable to delete webroot @ {}", webRoot);
 			}
 		}
-		LOGGER.info("exiting...");
-		LOGGER.info("bye bye");
+		
+		cleanupLogger.info("exiting... bye bye");
 	}
 
 	private static void exceptionMessageBeforeStart(Exception e, String msg) {
-		LOGGER.severe(e.getMessage());
-		LOGGER.severe(msg);
-		LOGGER.severe("whork will not start");
+		LOGGER.error("{}: {}\nWhork will not start", e.getMessage(), msg);
 	}
 
 	public static void main(String[] args) {
@@ -253,8 +250,7 @@ public class App {
 			return;
 		}
 
-		LOGGER.info("Welcome to Whork server!");
-		LOGGER.info("starting up...");
+		LOGGER.info("Welcome to Whork server! Starting up...");
 
 		Runtime.getRuntime().addShutdownHook(new Thread() {
 			@Override
@@ -264,7 +260,7 @@ public class App {
 		});
 
 		if (!startTomcat()) {
-			LOGGER.severe("unable to start tomcat, details above");
+			LOGGER.error("unable to start tomcat, details above");
 		}
 
 		cleanup();
